@@ -1,0 +1,61 @@
+/*-------------------------------------------maps----------------------------------*/
+$colors: (
+  block: #579c87,
+  bg-menu-1: #fcdfdb,
+  bg-menu-2: #fff5fe,
+  bg-menu-3: #f9f9f9,
+  bg-menu-4: #fdfffd,
+  txt-menu-1: #000,
+  txt-menu-2: #c77412,
+  txt-menu-3: #0887fb,
+  txt-menu-4: #72bf56,
+  );
+$font-color: (
+  main: #fdcb46);
+$font-size: (
+  header: 4.2em,
+  txt-menu: 1.5em,
+  title-menu: 2.3em);
+$i: 0;
+
+/*--------------------------------------------mixin--------------------------------*/
+@mixin googlefonts($fonts) {
+  @import url('https://fonts.googleapis.com/css?family=#{$fonts}&display=swap');  
+}
+
+@mixin form-block($bg-colour: map-get($colors, block)) {
+  display: flex;
+  background-color: $bg-colour;
+}
+
+@mixin form-blockelement(
+  $colour: map-get($font-color, main),
+  $size: map-get($font-size, txt-menu)
+) {
+  color: $colour;
+  font-size: $size;
+}
+
+/*----------------------------------------------loop------------------------------------------*/
+@while $i <= 4 {
+  .menu-#{$i} {
+    width: 550px;
+    height: 700px;
+    margin: 50px;
+    box-shadow: 1px 1px 15px 1px #7a7a7a;
+    &__content {
+      margin: auto;
+      text-align: center;
+      & h2 {
+        font-weight: normal;
+      }
+    }
+  }
+  $i: $i + 1;
+}
+
+
+/*--------------------------------------------fonts--------------------------------------------*/
+@include googlefonts(Montserrat);
+@include googlefonts("Zhi+Mang+Xing")
+/*-------------------------------police microsoft corp présente sur android?--------------------------*/

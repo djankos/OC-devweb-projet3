@@ -1,0 +1,105 @@
+@import "./utils/utils";
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/*----------------------------------------------------banner+button---------------------------------------------*/
+header {
+  width: 100%;
+  height: 150px;
+  @include form-block;
+  & h1 {
+    @include form-blockelement(
+      adjust-hue(map-get($font-color, main), 5),
+      map-get($font-size, header)
+    );
+    margin: auto;
+    font-weight: bold;
+  }
+}
+.soon {
+  width: 360px;
+  height: 60px;
+  @include form-block;
+  border-radius: 10px;
+  margin: 40px auto;
+  & p {
+    margin: auto;
+    @include form-blockelement(
+      map-get($font-color, main),
+      map-get($font-size, title-menu)
+    );
+  }
+}
+footer {
+  width: 100%;
+  height: 80px;
+  @include form-block;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  bottom: 1px;
+   a {
+    text-decoration: none;
+    padding: 15px;
+    @include form-blockelement;
+  }
+}
+
+/*-------------------------------------------------menu---------------------------------------*/
+.menus {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.menu-1 {
+  @include form-block(map-get($colors, bg-menu-1));
+  &__content {
+    font-family: 'Zhi Mang Xing', sans-serif;
+    @include form-blockelement(map-get($colors, txt-menu-1));
+  }
+  &__title {
+    font-size: map-get($font-size, title-menu);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'segoe print', sans-serif;
+  }
+}
+
+.menu-2 {
+    @include form-block(map-get($colors, bg-menu-2));
+    &__content {
+      @include form-blockelement(map-get($colors, txt-menu-2));
+    }
+    &__title {
+      font-size: map-get($font-size, title-menu);
+      font-weight: bold;
+      font-family: 'comic sans';
+    }
+  }
+
+  .menu-3 {
+    @include form-block(map-get($colors, bg-menu-3));
+    &__content {
+      @include form-blockelement(map-get($colors, txt-menu-3));
+    }
+    &__title {
+      font-size: map-get($font-size, title-menu);
+      font-family: 'segoe print', sans-serif;
+    }
+  }
+
+  .menu-4 {
+    @include form-block(map-get($colors, bg-menu-4));
+    &__content {
+      @include form-blockelement(map-get($colors, txt-menu-4));
+    }
+    &__title {
+      font-size: map-get($font-size, title-menu);
+      font-family: 'segoe print', sans-serif;
+    }
+  }
+
