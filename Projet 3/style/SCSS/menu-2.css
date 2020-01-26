@@ -142,23 +142,6 @@ header h1 {
   font-weight: bold;
 }
 
-.soon {
-  width: 360px;
-  height: 60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: #579c87;
-  border-radius: 10px;
-  margin: 40px auto;
-}
-
-.soon p {
-  margin: auto;
-  color: #fdcb46;
-  font-size: 2.4em;
-}
-
 footer {
   width: 100%;
   height: 60px;
@@ -184,91 +167,106 @@ footer a {
   font-size: 1.5em;
 }
 
-/*-------------------------------------------------menu---------------------------------------*/
-.menus {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+/*------------------------------------------menu-------------------------------------*/
+.menu-title {
+  text-align: center;
+  margin: 30px;
+  font-size: 2.4em;
 }
 
-a {
-  text-decoration: none;
+.menu-title--inside {
+  margin: 90px;
+  font-size: 4.2em;
+  letter-spacing: 0.1em;
 }
 
-.menu-1 {
+article {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 80%;
+  height: 1500px;
+  margin: 10px auto 60px;
+  padding: 50px;
+  -webkit-box-shadow: 1px 1px 15px 1px #7a7a7a;
+          box-shadow: 1px 1px 15px 1px #7a7a7a;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   background-color: #fcdfdb;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
 }
 
-.menu-1__content {
-  font-family: "Zhi Mang Xing", sans-serif;
-  color: #000;
-  font-size: 1.5em;
+article h3 {
+  font-size: 1.9em;
 }
 
-.menu-1__title {
-  font-size: 2.4em;
+article .starter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: left;
+  padding: 30px 0;
+}
+
+article .starter ul:nth-child(2) {
   font-weight: bold;
-  text-transform: uppercase;
-  font-family: "segoe print", sans-serif;
 }
 
-.menu-2 {
+article .starter li {
+  list-style-type: none;
+  padding-bottom: 20px;
+  font-size: 1.5em;
+  font-style: normal;
+}
+
+article .main-course {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #fff5fe;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: left;
+  padding: 30px 0;
 }
 
-.menu-2__content {
-  color: #c77412;
-  font-size: 1.5em;
-}
-
-.menu-2__title {
-  font-size: 2.4em;
+article .main-course ul:nth-child(2) {
   font-weight: bold;
-  font-family: "comic sans", sans-serif;
 }
 
-.menu-3 {
+article .main-course li {
+  list-style-type: none;
+  padding-bottom: 20px;
+  font-size: 1.5em;
+  font-style: normal;
+}
+
+article .dessert {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #f9f9f9;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  text-align: left;
+  padding: 30px 0;
 }
 
-.menu-3__content {
-  color: #0887fb;
+article .dessert ul:nth-child(2) {
+  font-weight: bold;
+}
+
+article .dessert li {
+  list-style-type: none;
+  padding-bottom: 20px;
   font-size: 1.5em;
+  font-style: normal;
 }
-
-.menu-3__title {
-  font-size: 2.4em;
-  font-family: "segoe print", sans-serif;
-}
-
-.menu-4 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  background-color: #fdfffd;
-}
-
-.menu-4__content {
-  color: #72bf56;
-  font-size: 1.5em;
-}
-
-.menu-4__title {
-  font-size: 2.4em;
-  font-family: "segoe print", sans-serif;
-}
-/*# sourceMappingURL=main.css.map */
+/*# sourceMappingURL=menu-2.css.map */

@@ -4,23 +4,27 @@ $colors: (
   bg-menu-1: #fcdfdb,
   bg-menu-2: #fff5fe,
   bg-menu-3: #f9f9f9,
-  bg-menu-4: #fdfffd,
+  bg-menu-4: #fdfffd
+);
+$font-color: (
+  main: #fdcb46,
   txt-menu-1: #000,
   txt-menu-2: #c77412,
   txt-menu-3: #0887fb,
-  txt-menu-4: #72bf56,
-  );
-$font-color: (
-  main: #fdcb46);
+  txt-menu-4: #72bf56
+);
 $font-size: (
   header: 4.2em,
-  txt-menu: 1.5em,
-  title-menu: 2.3em);
+  title-menu: 2.4em,
+  section-menu: 1.9em,
+  txt-menu: 1.5em
+);
 $i: 0;
+$duration: 2500ms;
 
 /*--------------------------------------------mixin--------------------------------*/
 @mixin googlefonts($fonts) {
-  @import url('https://fonts.googleapis.com/css?family=#{$fonts}&display=swap');  
+  @import url("https://fonts.googleapis.com/css?family=#{$fonts}&display=swap");
 }
 
 @mixin form-block($bg-colour: map-get($colors, block)) {
@@ -35,14 +39,29 @@ $i: 0;
   color: $colour;
   font-size: $size;
 }
-
+@mixin menu-page($size) {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+  padding: 30px 0;
+  & ul:nth-child(2) {
+    font-weight: bold;
+  }
+  & li {
+    list-style-type: none;
+    padding-bottom: 20px;
+    font-size: $size;
+    font-style: normal;
+  }
+}
 /*----------------------------------------------loop------------------------------------------*/
 @while $i <= 4 {
   .menu-#{$i} {
     width: 550px;
-    height: 700px;
+    height: 680px;
     margin: 50px;
     box-shadow: 1px 1px 15px 1px #7a7a7a;
+    animation: zoom-menu $duration ($duration * $i) backwards;
     &__content {
       margin: auto;
       text-align: center;
@@ -54,8 +73,17 @@ $i: 0;
   $i: $i + 1;
 }
 
-
 /*--------------------------------------------fonts--------------------------------------------*/
 @include googlefonts(Montserrat);
-@include googlefonts("Zhi+Mang+Xing")
-/*-------------------------------police microsoft corp présente sur android?--------------------------*/
+@include googlefonts("Zhi+Mang+Xing");
+
+@keyframes zoom-menu {
+  0% {
+    font-size: 25%;
+    opacity: 0;
+  }
+  100% {
+    font-size: 115%;;
+    opacity: 1;
+  }
+}
