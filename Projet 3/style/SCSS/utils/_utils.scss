@@ -1,89 +1,116 @@
 /*-------------------------------------------maps----------------------------------*/
-$colors: (
-  block: #579c87,
-  bg-menu-1: #fcdfdb,
-  bg-menu-2: #fff5fe,
-  bg-menu-3: #f9f9f9,
-  bg-menu-4: #fdfffd
-);
-$font-color: (
-  main: #fdcb46,
-  txt-menu-1: #000,
-  txt-menu-2: #c77412,
-  txt-menu-3: #0887fb,
-  txt-menu-4: #72bf56
-);
-$font-size: (
-  header: 4.2em,
-  title-menu: 2.4em,
-  section-menu: 1.9em,
-  txt-menu: 1.5em
-);
+
+$colors: ( block: #579c87, bg-menu-1: #fcdfdb, bg-menu-2: #fff5fe, bg-menu-3: #f9f9f9, bg-menu-4: #fdfffd);
+$font-color: ( main: #fdcb46, txt-menu-1: #000, txt-menu-2: #c77412, txt-menu-3: #0887fb, txt-menu-4: #72bf56);
+$font-size: ( header: 4.2em, title-menu: 2.4em, section-menu: 1.8em, txt-menu: 1.4em);
 $i: 0;
-$duration: 2500ms;
+$duration: 1500ms;
 
 /*--------------------------------------------mixin--------------------------------*/
+
 @mixin googlefonts($fonts) {
-  @import url("https://fonts.googleapis.com/css?family=#{$fonts}&display=swap");
+    @import url("https://fonts.googleapis.com/css?family=#{$fonts}&display=swap");
 }
 
 @mixin form-block($bg-colour: map-get($colors, block)) {
-  display: flex;
-  background-color: $bg-colour;
+    display: flex;
+    background-color: $bg-colour;
 }
 
-@mixin form-blockelement(
-  $colour: map-get($font-color, main),
-  $size: map-get($font-size, txt-menu)
-) {
-  color: $colour;
-  font-size: $size;
-}
-@mixin menu-page($size) {
-  display: flex;
-  justify-content: space-between;
-  text-align: left;
-  padding: 30px 0;
-  & ul:nth-child(2) {
-    font-weight: bold;
-  }
-  & li {
-    list-style-type: none;
-    padding-bottom: 20px;
+@mixin form-blockelement( $colour: map-get($font-color, main),
+$size: map-get($font-size, txt-menu)) {
+    color: $colour;
     font-size: $size;
-    font-style: normal;
-  }
 }
-/*----------------------------------------------loop------------------------------------------*/
-@while $i <= 4 {
-  .menu-#{$i} {
-    width: 550px;
-    height: 680px;
-    margin: 50px;
-    box-shadow: 1px 1px 15px 1px #7a7a7a;
-    animation: zoom-menu $duration ($duration * $i) backwards;
-    &__content {
-      margin: auto;
-      text-align: center;
-      & h2 {
-        font-weight: normal;
-      }
+
+@mixin menu-page($size) {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 0;
+    text-align: left;
+    & li {
+        list-style-type: none;
+        padding-bottom: 20px;
+        font-size: $size;
     }
-  }
-  $i: $i + 1;
 }
+
+
+/*----------------------------------------------loop------------------------------------------*/
+
+@while $i <=4 {
+    .menu-#{$i} {
+        width: 550px;
+        height: 680px;
+        margin: 50px;
+        box-shadow: 1px 1px 15px 1px #7a7a7a;
+        animation: zoom-menu $duration ($duration * $i) both;
+        &__content {
+            margin: auto;
+            text-align: center;
+            & h2 {
+                font-weight: normal;
+            }
+        }
+    }
+    $i: $i+1;
+}
+
 
 /*--------------------------------------------fonts--------------------------------------------*/
+
 @include googlefonts(Montserrat);
 @include googlefonts("Zhi+Mang+Xing");
 
+/*--------------------------------------------animations--------------------------------------*/
+
 @keyframes zoom-menu {
-  0% {
-    font-size: 25%;
-    opacity: 0;
-  }
-  100% {
-    font-size: 115%;;
-    opacity: 1;
-  }
+    0% {
+        font-size: 25%;
+        opacity: 0;
+    }
+    100% {
+        font-size: 115%;
+        ;
+        opacity: 1;
+    }
+}
+
+@keyframes dotdotdot {
+    0% {
+        opacity: .2;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: .2;
+    }
+}
+
+@keyframes shake-btn {
+    0%,
+    100% {
+        transform: rotate(0deg);
+        transform-origin: 50% 100%;
+    }
+    10% {
+        transform: rotate(2deg);
+    }
+    20%,
+    40%,
+    60% {
+        transform: rotate(-4deg);
+    }
+    30%,
+    50%,
+    70% {
+        transform: rotate(4deg);
+    }
+    80% {
+        transform: rotate(-2deg);
+    }
+    90% {
+        transform: rotate(2deg);
+    }
 }

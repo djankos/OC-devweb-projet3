@@ -1,70 +1,104 @@
 @import "./utils/utils";
-
 body {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
 }
+
 
 /*----------------------------------------------------banner+button---------------------------------------------*/
+
 header {
-  width: 100%;
-  height: 120px;
-  @include form-block;
-  & h1 {
-    @include form-blockelement(
-      adjust-hue(map-get($font-color, main), 8),
-      map-get($font-size, header));
-    margin: auto;
-    font-weight: bold;
-  }
-}
-footer {
-  width: 100%;
-  height: 60px;
-  @include form-block;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  bottom: 1px;
-  a {
-    text-decoration: none;
-    padding: 15px;
-    @include form-blockelement;
-  }
+    width: 100%;
+    height: 120px;
+    @include form-block;
+    & h1 {
+        @include form-blockelement( adjust-hue(map-get($font-color, main), 8), map-get($font-size, header));
+        margin: auto;
+        font-weight: bold;
+    }
 }
 
-/*------------------------------------------menu-------------------------------------*/
-.menu-title {
-  text-align: center;
-  margin: 30px;
-  font-size: map-get($font-size, title-menu);
-  &--inside {
-  margin: 90px;
-  font-size: map-get($font-size, header);
-  letter-spacing: 0.1em;
+footer {
+    width: 100%;
+    height: 60px;
+    @include form-block;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    bottom: 1px;
+    a {
+        text-decoration: none;
+        padding: 15px;
+        @include form-blockelement;
+    }
+    & .shaky {
+        animation: shake-btn $duration ease-in-out both;
+        &--2 {
+            animation-delay: $duration;
+        }
+    }
 }
+
+
+/*------------------------------------------menu-------------------------------------*/
+
+.menu-title {
+    text-align: center;
+    margin: 30px;
+    font-size: map-get($font-size, title-menu);
+    &--inside {
+        margin: 90px;
+        font-size: map-get($font-size, header);
+        letter-spacing: 0.1em;
+    }
 }
 
 article {
-  box-sizing: border-box;
-  width: 80%;
-  height: 1500px;
-  margin: 10px auto 60px;
-  padding: 50px;
-  box-shadow: 1px 1px 15px 1px #7a7a7a;
-  @include form-block(map-get($colors, bg-menu-1));
-  flex-direction: column;
-  text-align: center;
-  & h3 {
-    font-size: map-get($font-size, section-menu);
-  }
-  & .starter {
+    box-sizing: border-box;
+    width: 80%;
+    height: 1500px;
+    margin: 10px auto 60px;
+    padding: 50px;
+    box-shadow: 1px 1px 15px 1px #7a7a7a;
+    background-color: map-get($colors, bg-menu-3);
+    text-align: center;
+    & section {
         @include menu-page(map-get($font-size, txt-menu));
+        margin-bottom: 30px;
+        & ul {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 0;
+            & li.bold {
+                font-weight: bold;
+            }
+        }
     }
-  & .main-course {
-   @include menu-page(map-get($font-size, txt-menu));
+}
+
+h3 {
+    font-size: map-get($font-size, section-menu);
+    display: inline;
+    line-height: 1.5em;
+}
+
+.underline {
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 3px;
+        display: block;
+        margin-top: 5px;
+        right: 0;
+        background: #fff;
+        transition: width 1s ease;
     }
-  & .dessert {
-    @include menu-page(map-get($font-size, txt-menu));
+    &:hover:after {
+        width: 100%;
+        left: 0;
+        background: #fff;
     }
 }

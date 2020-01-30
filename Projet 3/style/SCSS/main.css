@@ -9,8 +9,8 @@
   margin: 50px;
   -webkit-box-shadow: 1px 1px 15px 1px #7a7a7a;
           box-shadow: 1px 1px 15px 1px #7a7a7a;
-  -webkit-animation: zoom-menu 2500ms 0ms backwards;
-          animation: zoom-menu 2500ms 0ms backwards;
+  -webkit-animation: zoom-menu 1500ms 0ms both;
+          animation: zoom-menu 1500ms 0ms both;
 }
 
 .menu-0__content {
@@ -28,8 +28,8 @@
   margin: 50px;
   -webkit-box-shadow: 1px 1px 15px 1px #7a7a7a;
           box-shadow: 1px 1px 15px 1px #7a7a7a;
-  -webkit-animation: zoom-menu 2500ms 2500ms backwards;
-          animation: zoom-menu 2500ms 2500ms backwards;
+  -webkit-animation: zoom-menu 1500ms 1500ms both;
+          animation: zoom-menu 1500ms 1500ms both;
 }
 
 .menu-1__content {
@@ -47,8 +47,8 @@
   margin: 50px;
   -webkit-box-shadow: 1px 1px 15px 1px #7a7a7a;
           box-shadow: 1px 1px 15px 1px #7a7a7a;
-  -webkit-animation: zoom-menu 2500ms 5000ms backwards;
-          animation: zoom-menu 2500ms 5000ms backwards;
+  -webkit-animation: zoom-menu 1500ms 3000ms both;
+          animation: zoom-menu 1500ms 3000ms both;
 }
 
 .menu-2__content {
@@ -66,8 +66,8 @@
   margin: 50px;
   -webkit-box-shadow: 1px 1px 15px 1px #7a7a7a;
           box-shadow: 1px 1px 15px 1px #7a7a7a;
-  -webkit-animation: zoom-menu 2500ms 7500ms backwards;
-          animation: zoom-menu 2500ms 7500ms backwards;
+  -webkit-animation: zoom-menu 1500ms 4500ms both;
+          animation: zoom-menu 1500ms 4500ms both;
 }
 
 .menu-3__content {
@@ -85,8 +85,8 @@
   margin: 50px;
   -webkit-box-shadow: 1px 1px 15px 1px #7a7a7a;
           box-shadow: 1px 1px 15px 1px #7a7a7a;
-  -webkit-animation: zoom-menu 2500ms 10000ms backwards;
-          animation: zoom-menu 2500ms 10000ms backwards;
+  -webkit-animation: zoom-menu 1500ms 6000ms both;
+          animation: zoom-menu 1500ms 6000ms both;
 }
 
 .menu-4__content {
@@ -99,6 +99,7 @@
 }
 
 /*--------------------------------------------fonts--------------------------------------------*/
+/*--------------------------------------------animations--------------------------------------*/
 @-webkit-keyframes zoom-menu {
   0% {
     font-size: 25%;
@@ -117,6 +118,98 @@
   100% {
     font-size: 115%;
     opacity: 1;
+  }
+}
+
+@-webkit-keyframes dotdotdot {
+  0% {
+    opacity: .2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .2;
+  }
+}
+
+@keyframes dotdotdot {
+  0% {
+    opacity: .2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .2;
+  }
+}
+
+@-webkit-keyframes shake-btn {
+  0%,
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+  }
+  10% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+  }
+  30%,
+  50%,
+  70% {
+    -webkit-transform: rotate(4deg);
+            transform: rotate(4deg);
+  }
+  80% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  90% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+}
+
+@keyframes shake-btn {
+  0%,
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+  }
+  10% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: rotate(-4deg);
+            transform: rotate(-4deg);
+  }
+  30%,
+  50%,
+  70% {
+    -webkit-transform: rotate(4deg);
+            transform: rotate(4deg);
+  }
+  80% {
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+  }
+  90% {
+    -webkit-transform: rotate(2deg);
+            transform: rotate(2deg);
   }
 }
 
@@ -143,7 +236,7 @@ header h1 {
 }
 
 .soon {
-  width: 360px;
+  width: 400px;
   height: 60px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -157,6 +250,22 @@ header h1 {
   margin: auto;
   color: #fdcb46;
   font-size: 2.4em;
+}
+
+.soon span {
+  font-size: 50px;
+  -webkit-animation: dotdotdot 1500ms infinite both;
+          animation: dotdotdot 1500ms infinite both;
+}
+
+.soon span:nth-child(2) {
+  -webkit-animation-delay: 200ms;
+          animation-delay: 200ms;
+}
+
+.soon span:nth-child(3) {
+  -webkit-animation-delay: 400ms;
+          animation-delay: 400ms;
 }
 
 footer {
@@ -181,7 +290,17 @@ footer a {
   text-decoration: none;
   padding: 15px;
   color: #fdcb46;
-  font-size: 1.5em;
+  font-size: 1.4em;
+}
+
+footer .shaky {
+  -webkit-animation: shake-btn 1500ms ease-in-out both;
+          animation: shake-btn 1500ms ease-in-out both;
+}
+
+footer .shaky--2 {
+  -webkit-animation-delay: 1500ms;
+          animation-delay: 1500ms;
 }
 
 /*-------------------------------------------------menu---------------------------------------*/
@@ -200,17 +319,26 @@ a {
   text-decoration: none;
 }
 
+.fa-music {
+  background: -webkit-gradient(linear, left top, right top, from(red), to(orange));
+  background: linear-gradient(left, red, orange);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .menu-1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   background-color: #fcdfdb;
+  -webkit-animation-delay: 600ms;
+          animation-delay: 600ms;
 }
 
 .menu-1__content {
   font-family: "Zhi Mang Xing", sans-serif;
   color: #000;
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 .menu-1__title {
@@ -229,7 +357,7 @@ a {
 
 .menu-2__content {
   color: #c77412;
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 .menu-2__title {
@@ -247,7 +375,7 @@ a {
 
 .menu-3__content {
   color: #0887fb;
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 .menu-3__title {
@@ -264,7 +392,7 @@ a {
 
 .menu-4__content {
   color: #72bf56;
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 .menu-4__title {

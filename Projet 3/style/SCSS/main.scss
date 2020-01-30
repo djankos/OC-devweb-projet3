@@ -1,106 +1,130 @@
 @import "./utils/utils";
-
 body {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
 }
+
 
 /*----------------------------------------------------banner+button---------------------------------------------*/
+
 header {
-  width: 100%;
-  height: 120px;
-  @include form-block;
-  & h1 {
-    @include form-blockelement(
-      adjust-hue(map-get($font-color, main), 8),
-      map-get($font-size, header)
-    );
-    margin: auto;
-    font-weight: bold;
-  }
-}
-.soon {
-  width: 360px;
-  height: 60px;
-  @include form-block;
-  border-radius: 10px;
-  margin: 40px auto;
-  & p {
-    margin: auto;
-    @include form-blockelement(
-      map-get($font-color, main),
-      map-get($font-size, title-menu)
-    );
-  }
-}
-footer {
-  width: 100%;
-  height: 60px;
-  @include form-block;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  bottom: 1px;
-  a {
-    text-decoration: none;
-    padding: 15px;
-    @include form-blockelement;
-  }
+    width: 100%;
+    height: 120px;
+    @include form-block;
+    & h1 {
+        @include form-blockelement( adjust-hue(map-get($font-color, main), 8), map-get($font-size, header));
+        margin: auto;
+        font-weight: bold;
+    }
 }
 
+.soon {
+    width: 400px;
+    height: 60px;
+    @include form-block;
+    border-radius: 10px;
+    margin: 40px auto;
+    & p {
+        margin: auto;
+        @include form-blockelement( map-get($font-color, main), map-get($font-size, title-menu));
+    }
+    & span {
+        font-size: 50px;
+        animation: dotdotdot 1500ms infinite both;
+        &:nth-child(2) {
+            animation-delay: 200ms;
+        }
+        &:nth-child(3) {
+            animation-delay: 400ms;
+        }
+    }
+}
+
+footer {
+    width: 100%;
+    height: 60px;
+    @include form-block;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    bottom: 1px;
+    a {
+        text-decoration: none;
+        padding: 15px;
+        @include form-blockelement;
+    }
+    & .shaky {
+        animation: shake-btn $duration ease-in-out both;
+        &--2 {
+            animation-delay: $duration;
+        }
+    }
+}
+
+
 /*-------------------------------------------------menu---------------------------------------*/
+
 .menus {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
+
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
+
+.fa-music {
+    background: linear-gradient(left, red, orange);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 .menu-1 {
-  @include form-block(map-get($colors, bg-menu-1));
-  &__content {
-    font-family: "Zhi Mang Xing", sans-serif;
-    @include form-blockelement(map-get($font-color, txt-menu-1));
-  }
-  &__title {
-    font-size: map-get($font-size, title-menu);
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: "segoe print", sans-serif;
-  }
+    @include form-block(map-get($colors, bg-menu-1));
+    animation-delay: 600ms;
+    &__content {
+        font-family: "Zhi Mang Xing", sans-serif;
+        @include form-blockelement(map-get($font-color, txt-menu-1));
+    }
+    &__title {
+        font-size: map-get($font-size, title-menu);
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: "segoe print", sans-serif;
+    }
 }
 
 .menu-2 {
-  @include form-block(map-get($colors, bg-menu-2));
-  &__content {
-    @include form-blockelement(map-get($font-color, txt-menu-2));
-  }
-  &__title {
-    font-size: map-get($font-size, title-menu);
-    font-weight: bold;
-    font-family: "comic sans", sans-serif;
-  }
+    @include form-block(map-get($colors, bg-menu-2));
+    &__content {
+        @include form-blockelement(map-get($font-color, txt-menu-2));
+    }
+    &__title {
+        font-size: map-get($font-size, title-menu);
+        font-weight: bold;
+        font-family: "comic sans", sans-serif;
+    }
 }
 
 .menu-3 {
-  @include form-block(map-get($colors, bg-menu-3));
-  &__content {
-    @include form-blockelement(map-get($font-color, txt-menu-3));
-  }
-  &__title {
-    font-size: map-get($font-size, title-menu);
-    font-family: "segoe print", sans-serif;
-  }
+    @include form-block(map-get($colors, bg-menu-3));
+    &__content {
+        @include form-blockelement(map-get($font-color, txt-menu-3));
+    }
+    &__title {
+        font-size: map-get($font-size, title-menu);
+        font-family: "segoe print", sans-serif;
+    }
 }
 
 .menu-4 {
-  @include form-block(map-get($colors, bg-menu-4));
-  &__content {
-    @include form-blockelement(map-get($font-color, txt-menu-4));
-  }
-  &__title {
-    font-size: map-get($font-size, title-menu);
-    font-family: "segoe print", sans-serif;
-  }
+    @include form-block(map-get($colors, bg-menu-4));
+    &__content {
+        @include form-blockelement(map-get($font-color, txt-menu-4));
+    }
+    &__title {
+        font-size: map-get($font-size, title-menu);
+        font-family: "segoe print", sans-serif;
+    }
 }
