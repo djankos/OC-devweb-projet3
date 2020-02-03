@@ -2,7 +2,11 @@
 /*--------------------------------------------mixin--------------------------------*/
 /*----------------------------------------------loop------------------------------------------*/
 @import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
-@import url("https://fonts.googleapis.com/css?family=Zhi+Mang+Xing&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Devonshire&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Caveat&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Dancing+Script&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Kaushan+Script&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Gabriela&display=swap");
 .menu-0 {
   width: 550px;
   height: 680px;
@@ -11,6 +15,12 @@
           box-shadow: 1px 1px 15px 1px #7a7a7a;
   -webkit-animation: zoom-menu 1500ms 0ms both;
           animation: zoom-menu 1500ms 0ms both;
+}
+
+@media (max-width: 425px) {
+  .menu-0 {
+    width: 300px;
+  }
 }
 
 .menu-0__content {
@@ -32,6 +42,12 @@
           animation: zoom-menu 1500ms 1500ms both;
 }
 
+@media (max-width: 425px) {
+  .menu-1 {
+    width: 300px;
+  }
+}
+
 .menu-1__content {
   margin: auto;
   text-align: center;
@@ -49,6 +65,12 @@
           box-shadow: 1px 1px 15px 1px #7a7a7a;
   -webkit-animation: zoom-menu 1500ms 3000ms both;
           animation: zoom-menu 1500ms 3000ms both;
+}
+
+@media (max-width: 425px) {
+  .menu-2 {
+    width: 300px;
+  }
 }
 
 .menu-2__content {
@@ -70,6 +92,12 @@
           animation: zoom-menu 1500ms 4500ms both;
 }
 
+@media (max-width: 425px) {
+  .menu-3 {
+    width: 300px;
+  }
+}
+
 .menu-3__content {
   margin: auto;
   text-align: center;
@@ -89,6 +117,12 @@
           animation: zoom-menu 1500ms 6000ms both;
 }
 
+@media (max-width: 425px) {
+  .menu-4 {
+    width: 300px;
+  }
+}
+
 .menu-4__content {
   margin: auto;
   text-align: center;
@@ -99,7 +133,6 @@
 }
 
 /*--------------------------------------------fonts--------------------------------------------*/
-/*--------------------------------------------animations--------------------------------------*/
 @-webkit-keyframes zoom-menu {
   0% {
     font-size: 25%;
@@ -235,6 +268,12 @@ header h1 {
   font-weight: bold;
 }
 
+@media (max-width: 425px) {
+  header h1 {
+    font-size: 2.5em;
+  }
+}
+
 footer {
   width: 100%;
   height: 60px;
@@ -257,7 +296,7 @@ footer a {
   text-decoration: none;
   padding: 15px;
   color: #fdcb46;
-  font-size: 1.4em;
+  font-size: 1.6em;
 }
 
 footer .shaky {
@@ -274,13 +313,57 @@ footer .shaky--2 {
 .menu-title {
   text-align: center;
   margin: 30px;
-  font-size: 2.4em;
+  font-size: 2.6em;
 }
 
 .menu-title--inside {
   margin: 90px;
   font-size: 4.2em;
   letter-spacing: 0.1em;
+  font-family: "Gabriela", sans-serif;
+  background: -webkit-gradient(linear, left top, right top, color-stop(15%, #c67412), to(#8f5bfe));
+  background: linear-gradient(0.25turn, #c67412 15%, #8f5bfe);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .menu-title--inside {
+    font-size: 2.5em;
+    margin: 60px 5px;
+  }
+}
+
+@media (max-width: 425px) {
+  main article {
+    width: 95%;
+    height: 1850px;
+    padding: 5px;
+  }
+  main article section ul {
+    display: block;
+    -webkit-padding-start: 0;
+            padding-inline-start: 0;
+    text-align: center;
+  }
+  main article section ul li {
+    padding-bottom: 0px;
+  }
+  main article section ul li.bold {
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 425px) and (max-width: 425px) {
+  main article section ul li.bold {
+    display: inline;
+    border-radius: 50%;
+    background: #F9D0FF;
+    line-height: 4.2em;
+    padding: 10px;
+    border: 2px dotted #a35b0f;
+  }
 }
 
 article {
@@ -292,8 +375,9 @@ article {
   padding: 50px;
   -webkit-box-shadow: 1px 1px 15px 1px #7a7a7a;
           box-shadow: 1px 1px 15px 1px #7a7a7a;
-  background-color: #fff5fe;
+  background-color: #fbe1f8;
   text-align: center;
+  font-family: serif;
 }
 
 article section {
@@ -312,7 +396,19 @@ article section {
 article section li {
   list-style-type: none;
   padding-bottom: 20px;
-  font-size: 1.4em;
+  font-size: 1.6em;
+}
+
+article section.starter {
+  color: #c67412;
+}
+
+article section.main-course {
+  color: #a55495;
+}
+
+article section.dessert {
+  color: #552acd;
 }
 
 article section ul {
@@ -329,6 +425,10 @@ article section ul {
   margin: 0;
 }
 
+article section ul li.bold {
+  font-weight: bold;
+}
+
 .dessert ul {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -336,10 +436,31 @@ article section ul {
           flex-direction: column;
 }
 
+@media (max-width: 425px) {
+  .dessert ul li {
+    padding-bottom: 20px;
+  }
+}
+
 h3 {
-  font-size: 1.8em;
-  display: inline;
-  line-height: 1.5em;
+  font-size: 2.3em;
+  display: inline-block;
+  margin: 30px;
+  color: #c67412;
+}
+
+@media (max-width: 425px) {
+  h3 {
+    margin: 0;
+  }
+}
+
+h3:nth-of-type(2) {
+  color: #a55495;
+}
+
+h3:nth-of-type(3) {
+  color: #552acd;
 }
 
 .underline {
@@ -347,14 +468,14 @@ h3 {
 }
 
 .underline:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 0;
   height: 3px;
   display: block;
   margin-top: 5px;
   right: 0;
-  background: #fff;
+  background: #c67412;
   -webkit-transition: width 1s ease;
   transition: width 1s ease;
 }
@@ -362,6 +483,52 @@ h3 {
 .underline:hover:after {
   width: 100%;
   left: 0;
-  background: #fff;
+  background: #c67412;
+}
+
+.underline:nth-of-type(2) {
+  position: relative;
+}
+
+.underline:nth-of-type(2):after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: #a55495;
+  -webkit-transition: width 1s ease;
+  transition: width 1s ease;
+}
+
+.underline:nth-of-type(2):hover:after {
+  width: 100%;
+  left: 0;
+  background: #a55495;
+}
+
+.underline:nth-of-type(3) {
+  position: relative;
+}
+
+.underline:nth-of-type(3):after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: #552acd;
+  -webkit-transition: width 1s ease;
+  transition: width 1s ease;
+}
+
+.underline:nth-of-type(3):hover:after {
+  width: 100%;
+  left: 0;
+  background: #552acd;
 }
 /*# sourceMappingURL=menu-2.css.map */

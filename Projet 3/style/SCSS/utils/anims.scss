@@ -1,0 +1,70 @@
+@keyframes zoom-menu {
+    0% {
+        font-size: 25%;
+        opacity: 0;
+    }
+    100% {
+        font-size: 115%;
+        ;
+        opacity: 1;
+    }
+}
+
+@keyframes dotdotdot {
+    0% {
+        opacity: .2;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: .2;
+    }
+}
+
+@keyframes shake-btn {
+    0%,
+    100% {
+        transform: rotate(0deg);
+        transform-origin: 50% 100%;
+    }
+    10% {
+        transform: rotate(2deg);
+    }
+    20%,
+    40%,
+    60% {
+        transform: rotate(-4deg);
+    }
+    30%,
+    50%,
+    70% {
+        transform: rotate(4deg);
+    }
+    80% {
+        transform: rotate(-2deg);
+    }
+    90% {
+        transform: rotate(2deg);
+    }
+}
+
+@mixin underline-anim($color) {
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        display: block;
+        margin-top: 5px;
+        right: 0;
+        background: $color;
+        transition: width 1s ease;
+    }
+    &:hover:after {
+        width: 100%;
+        left: 0;
+        background: $color;
+    }
+}

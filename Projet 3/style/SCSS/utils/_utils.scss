@@ -1,10 +1,12 @@
 /*-------------------------------------------maps----------------------------------*/
 
-$colors: ( block: #579c87, bg-menu-1: #fcdfdb, bg-menu-2: #fff5fe, bg-menu-3: #f9f9f9, bg-menu-4: #fdfffd);
-$font-color: ( main: #fdcb46, txt-menu-1: #000, txt-menu-2: #c77412, txt-menu-3: #0887fb, txt-menu-4: #72bf56);
-$font-size: ( header: 4.2em, title-menu: 2.4em, section-menu: 1.8em, txt-menu: 1.4em);
+$colors: ( block: #579c87, bg-menu-1: #fad5d0, bg-menu-2: #fbe1f8, bg-menu-3: #eeecec, bg-menu-4: #fdfffd);
+$font-color: ( main: #fdcb46, txt-menu-1: #000, txt-menu-2: #c67412, starter-menu-2: #c67412, main-course-menu-2: #a55495, dessert-menu-2: #552acd);
+$font-size: ( header: 4.2em, title-menu: 2.6em, section-menu: 2.3em, txt-menu: 1.6em, title-tablet: 2.5em, section-tablet: 1.7em, txt-tablet: 1.4em);
 $i: 0;
 $duration: 1500ms;
+$bp-tablet: 768px;
+$bp-phone: 425px;
 
 /*--------------------------------------------mixin--------------------------------*/
 
@@ -35,6 +37,46 @@ $size: map-get($font-size, txt-menu)) {
     }
 }
 
+@mixin breakpoint-phone($height,
+$background,
+$border) {
+    article {
+        @media (max-width: $bp-phone) {
+            width: 95%;
+            height: $height;
+            padding: 5px;
+            & section ul {
+                display: block;
+                padding-inline-start: 0;
+                text-align: center;
+                & li {
+                    padding-bottom: 0px;
+                    &.bold {
+                        font-weight: bold;
+                        @media (max-width: $bp-phone) {
+                            display: inline;
+                            border-radius: 50%;
+                            background: $background;
+                            line-height: 4.2em;
+                            padding: 10px;
+                            border: 2px dotted $border;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin title-gradient($position,
+$color-left,
+$color-right) {
+    background: linear-gradient($position, $color-left, $color-right);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
 
 /*----------------------------------------------loop------------------------------------------*/
 
@@ -45,6 +87,9 @@ $size: map-get($font-size, txt-menu)) {
         margin: 50px;
         box-shadow: 1px 1px 15px 1px #7a7a7a;
         animation: zoom-menu $duration ($duration * $i) both;
+        @media (max-width: $bp-phone) {
+            width: 300px;
+        }
         &__content {
             margin: auto;
             text-align: center;
@@ -59,58 +104,10 @@ $size: map-get($font-size, txt-menu)) {
 
 /*--------------------------------------------fonts--------------------------------------------*/
 
-@include googlefonts(Montserrat);
-@include googlefonts("Zhi+Mang+Xing");
-
-/*--------------------------------------------animations--------------------------------------*/
-
-@keyframes zoom-menu {
-    0% {
-        font-size: 25%;
-        opacity: 0;
-    }
-    100% {
-        font-size: 115%;
-        ;
-        opacity: 1;
-    }
-}
-
-@keyframes dotdotdot {
-    0% {
-        opacity: .2;
-    }
-    20% {
-        opacity: 1;
-    }
-    100% {
-        opacity: .2;
-    }
-}
-
-@keyframes shake-btn {
-    0%,
-    100% {
-        transform: rotate(0deg);
-        transform-origin: 50% 100%;
-    }
-    10% {
-        transform: rotate(2deg);
-    }
-    20%,
-    40%,
-    60% {
-        transform: rotate(-4deg);
-    }
-    30%,
-    50%,
-    70% {
-        transform: rotate(4deg);
-    }
-    80% {
-        transform: rotate(-2deg);
-    }
-    90% {
-        transform: rotate(2deg);
-    }
-}
+@include googlefonts("Montserrat");
+@include googlefonts("Devonshire");
+@include googlefonts("Caveat");
+@include googlefonts("Dancing+Script");
+@include googlefonts("Kaushan+Script");
+@include googlefonts("Gabriela");
+@import "./anims.scss";

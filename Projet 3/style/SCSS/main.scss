@@ -15,6 +15,9 @@ header {
         @include form-blockelement( adjust-hue(map-get($font-color, main), 8), map-get($font-size, header));
         margin: auto;
         font-weight: bold;
+        @media (max-width: $bp-phone) {
+            font-size: map-get($font-size, title-tablet);
+        }
     }
 }
 
@@ -24,9 +27,15 @@ header {
     @include form-block;
     border-radius: 10px;
     margin: 40px auto;
+    @media (max-width: $bp-phone) {
+        width: 95%;
+    }
     & p {
         margin: auto;
         @include form-blockelement( map-get($font-color, main), map-get($font-size, title-menu));
+        @media (max-width: $bp-phone) {
+            font-size: 1.7em
+        }
     }
     & span {
         font-size: 50px;
@@ -75,16 +84,14 @@ a {
 }
 
 .fa-music {
-    background: linear-gradient(left, red, orange);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    @include title-gradient(left, #f15f62, #f99b76);
 }
 
 .menu-1 {
     @include form-block(map-get($colors, bg-menu-1));
-    animation-delay: 600ms;
+    animation-delay: 700ms;
     &__content {
-        font-family: "Zhi Mang Xing", sans-serif;
+        font-family: "Devonshire", sans-serif;
         @include form-blockelement(map-get($font-color, txt-menu-1));
     }
     &__title {
@@ -98,33 +105,44 @@ a {
 .menu-2 {
     @include form-block(map-get($colors, bg-menu-2));
     &__content {
-        @include form-blockelement(map-get($font-color, txt-menu-2));
+        font-family: "Gabriela", sans-serif;
+        font-size: map-get($font-size, txt-menu);
+        @include title-gradient(.25turn, #c67412 15%, #9263f6);
     }
     &__title {
-        font-size: map-get($font-size, title-menu);
         font-weight: bold;
-        font-family: "comic sans", sans-serif;
+        font-family: serif;
+        font-size: map-get($font-size, title-menu);
+        -webkit-text-fill-color: map-get($font-color, txt-menu-2);
     }
 }
 
 .menu-3 {
     @include form-block(map-get($colors, bg-menu-3));
     &__content {
-        @include form-blockelement(map-get($font-color, txt-menu-3));
+        font-family: "Dancing Script", sans-serif;
+        @include form-blockelement;
+        @include title-gradient(left, #0222ca, #2095fb);
+        padding-left: 5px;
+        //padding for letter cut
     }
     &__title {
         font-size: map-get($font-size, title-menu);
         font-family: "segoe print", sans-serif;
+        -webkit-text-fill-color: #2095fb;
     }
 }
 
 .menu-4 {
     @include form-block(map-get($colors, bg-menu-4));
     &__content {
-        @include form-blockelement(map-get($font-color, txt-menu-4));
+        font-family: "Kaushan Script", sans-serif;
+        @include form-blockelement;
+        @include title-gradient(left, #388235, #d8ffb2);
     }
     &__title {
         font-size: map-get($font-size, title-menu);
         font-family: "segoe print", sans-serif;
+        -webkit-text-fill-color: #69bc4b;
     }
 }

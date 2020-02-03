@@ -15,6 +15,9 @@ header {
         @include form-blockelement( adjust-hue(map-get($font-color, main), 8), map-get($font-size, header));
         margin: auto;
         font-weight: bold;
+        @media (max-width: $bp-phone) {
+            font-size: map-get($font-size, title-tablet);
+        }
     }
 }
 
@@ -50,7 +53,17 @@ footer {
         margin: 90px;
         font-size: map-get($font-size, header);
         letter-spacing: 0.1em;
+        font-family: "Kaushan Script", sans-serif;
+        @include title-gradient(to right, #388235, #d0ffa3);
+        @media (max-width: $bp-tablet) {
+            font-size: map-get($font-size, title-tablet);
+            margin: 60px 5px;
+        }
     }
+}
+
+main {
+    @include breakpoint-phone(2050px, #d0ffa3, #388235);
 }
 
 article {
@@ -60,8 +73,9 @@ article {
     margin: 10px auto 60px;
     padding: 50px;
     box-shadow: 1px 1px 15px 1px #7a7a7a;
-    background-color: map-get($colors, bg-menu-3);
+    background-color: map-get($colors, bg-menu-4);
     text-align: center;
+    font-family: "Caveat", sans-serif;
     & section {
         @include menu-page(map-get($font-size, txt-menu));
         margin-bottom: 30px;
@@ -70,8 +84,13 @@ article {
             flex-direction: row;
             justify-content: space-between;
             margin: 0;
-            & li.bold {
-                font-weight: bold;
+            & li {
+                @media (max-width: $bp-tablet) {
+                    margin-left: 5px;
+                }
+                &.bold {
+                    font-weight: bold;
+                }
             }
         }
     }
@@ -79,26 +98,13 @@ article {
 
 h3 {
     font-size: map-get($font-size, section-menu);
-    display: inline;
-    line-height: 1.5em;
+    display: inline-block;
+    margin: 30px;
+    @media (max-width: $bp-phone) {
+        margin: 0;
+    }
 }
 
 .underline {
-    position: relative;
-    &:after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 3px;
-        display: block;
-        margin-top: 5px;
-        right: 0;
-        background: #fff;
-        transition: width 1s ease;
-    }
-    &:hover:after {
-        width: 100%;
-        left: 0;
-        background: #fff;
-    }
+    @include underline-anim(black)
 }
