@@ -51,13 +51,13 @@
 
 @mixin underline-anim($color) {
     position: relative;
+    margin-bottom: 40px;
     &:after {
         content: "";
         position: absolute;
         width: 0;
         height: 3px;
         display: block;
-        margin-top: 5px;
         right: 0;
         background: $color;
         transition: width 1s ease;

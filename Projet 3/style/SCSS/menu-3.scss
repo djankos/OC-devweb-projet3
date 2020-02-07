@@ -54,7 +54,7 @@ footer {
         font-size: map-get($font-size, header);
         letter-spacing: 0.1em;
         font-family: "Dancing Script", sans-serif;
-        @include title-gradient(left, #0222ca, #2095fb);
+        @include title-gradient(to right, #0222ca, #2095fb);
         @media (max-width: $bp-tablet) {
             font-size: map-get($font-size, title-tablet);
             margin: 60px 5px;
@@ -63,34 +63,22 @@ footer {
 }
 
 main {
-    @include breakpoint-phone(1800px, #2095fb, #0222ca);
+    @include breakpoint-phone(2150px, #2095fb, #0222ca);
 }
 
 article {
-    box-sizing: border-box;
-    width: 80%;
-    height: 1500px;
-    margin: 10px auto 60px;
-    padding: 50px;
-    box-shadow: 1px 1px 15px 1px #7a7a7a;
-    background-color: map-get($colors, bg-menu-3);
-    text-align: center;
+    @include menu-page(map-get($font-size, txt-menu), map-get($colors, bg-menu-3));
     font-family: "Caveat", sans-serif;
+    @media (max-width: $bp-tablet) {
+        height: 1350px;
+    }
     & section {
-        @include menu-page(map-get($font-size, txt-menu));
-        margin-bottom: 30px;
-        & ul {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin: 0;
-            & li {
-                @media (max-width: $bp-tablet) {
-                    margin-left: 5px;
-                }
-                &.bold {
-                    font-weight: bold;
-                }
+        & li {
+            @media (max-width: $bp-tablet) {
+                margin-left: 5px;
+            }
+            &.bold {
+                font-weight: bold;
             }
         }
     }
@@ -98,13 +86,13 @@ article {
 
 h3 {
     font-size: map-get($font-size, section-menu);
-    display: inline-block;
-    margin: 30px;
-    @media (max-width: $bp-phone) {
-        margin: 0;
+    margin: 40px auto 0 auto;
+    text-align: center;
+    &.underline {
+        @include underline-anim(black)
     }
 }
 
-.underline {
-    @include underline-anim(black)
+.edging {
+    @include edging-section-title;
 }

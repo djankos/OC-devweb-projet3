@@ -2,7 +2,7 @@
 
 $colors: ( block: #579c87, bg-menu-1: #fad5d0, bg-menu-2: #fbe1f8, bg-menu-3: #eeecec, bg-menu-4: #fdfffd);
 $font-color: ( main: #fdcb46, txt-menu-1: #000, txt-menu-2: #c67412, starter-menu-2: #c67412, main-course-menu-2: #a55495, dessert-menu-2: #552acd);
-$font-size: ( header: 4.2em, title-menu: 2.6em, section-menu: 2.3em, txt-menu: 1.6em, title-tablet: 2.5em, section-tablet: 1.7em, txt-tablet: 1.4em);
+$font-size: ( header: 4.2em, title-menu: 2.6em, section-menu: 2.3em, txt-menu: 1.6em, title-tablet: 2.4em, section-tablet: 1.7em, txt-tablet: 1.4em);
 $i: 0;
 $duration: 1500ms;
 $bp-tablet: 768px;
@@ -15,25 +15,54 @@ $bp-phone: 425px;
 }
 
 @mixin form-block($bg-colour: map-get($colors, block)) {
+    display: -webkit-box;
     display: flex;
     background-color: $bg-colour;
 }
 
-@mixin form-blockelement( $colour: map-get($font-color, main),
+@mixin form-blockelement($colour: map-get($font-color, main),
 $size: map-get($font-size, txt-menu)) {
     color: $colour;
     font-size: $size;
 }
 
-@mixin menu-page($size) {
-    display: flex;
-    flex-direction: column;
-    padding: 30px 0;
-    text-align: left;
-    & li {
-        list-style-type: none;
-        padding-bottom: 20px;
-        font-size: $size;
+
+/*----------------------------------------for article------------------------------------------*/
+
+@mixin menu-page($size,
+$background) {
+    box-sizing: border-box;
+    width: 80%;
+    height: 1600px;
+    margin: 10px auto 60px;
+    padding: 50px;
+    box-shadow: 1px 1px 15px 1px #7a7a7a;
+    text-align: center;
+    background-color: $background;
+    & section {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        padding: 30px 0;
+        text-align: left;
+        margin-bottom: 30px;
+        & ul {
+            display: -webkit-box;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            flex-direction: row;
+            -webkit-box-pack: justify;
+            justify-content: space-between;
+            margin: 0;
+            & li {
+                list-style-type: none;
+                padding-bottom: 20px;
+                font-size: $size;
+            }
+        }
     }
 }
 
@@ -45,21 +74,25 @@ $border) {
             width: 95%;
             height: $height;
             padding: 5px;
-            & section ul {
-                display: block;
-                padding-inline-start: 0;
+            margin: 50px;
+            & section {
                 text-align: center;
-                & li {
-                    padding-bottom: 0px;
-                    &.bold {
-                        font-weight: bold;
-                        @media (max-width: $bp-phone) {
-                            display: inline;
-                            border-radius: 50%;
-                            background: $background;
-                            line-height: 4.2em;
-                            padding: 10px;
-                            border: 2px dotted $border;
+                padding: 0;
+                & ul {
+                    display: block;
+                    padding-left: 0px;
+                    & li {
+                        padding-bottom: 0px;
+                        &.bold {
+                            font-weight: bold;
+                            @media (max-width: $bp-phone) {
+                                display: inline;
+                                border-radius: 50%;
+                                background: $background;
+                                line-height: 4.2em;
+                                padding: 10px;
+                                border: 2px dotted $border;
+                            }
                         }
                     }
                 }
@@ -68,13 +101,34 @@ $border) {
     }
 }
 
+
+/*------------------------------------------------------------------------------------------*/
+
 @mixin title-gradient($position,
 $color-left,
 $color-right) {
+    background: -webkit-gradient( linear, left top, left bottom, from($position), color-stop($color-left), to($color-right));
     background: linear-gradient($position, $color-left, $color-right);
-    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+@mixin edging-section-title {
+    display: -webkit-box;
+    display: flex;
+    &__left {
+        width: 30%;
+        padding-left: 40px;
+        @media (max-width: $bp-tablet) {
+            display: none;
+        }
+    }
+    &__right {
+        width: 30%;
+        @media (max-width: $bp-tablet) {
+            display: none;
+        }
+    }
 }
 
 
@@ -86,9 +140,11 @@ $color-right) {
         height: 680px;
         margin: 50px;
         box-shadow: 1px 1px 15px 1px #7a7a7a;
+        -webkit-animation: zoom-menu $duration ($duration * $i) both;
         animation: zoom-menu $duration ($duration * $i) both;
         @media (max-width: $bp-phone) {
             width: 300px;
+            margin: 50px 0;
         }
         &__content {
             margin: auto;

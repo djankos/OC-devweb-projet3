@@ -84,7 +84,7 @@ a {
 }
 
 .fa-music {
-    @include title-gradient(left, #f15f62, #f99b76);
+    @include title-gradient(to right, #f15f62, #f99b76);
 }
 
 .menu-1 {
@@ -122,7 +122,7 @@ a {
     &__content {
         font-family: "Dancing Script", sans-serif;
         @include form-blockelement;
-        @include title-gradient(left, #0222ca, #2095fb);
+        @include title-gradient(to right, #0222ca, #2095fb);
         padding-left: 5px;
         //padding for letter cut
     }
@@ -138,7 +138,7 @@ a {
     &__content {
         font-family: "Kaushan Script", sans-serif;
         @include form-blockelement;
-        @include title-gradient(left, #388235, #d8ffb2);
+        @include title-gradient(to right, #388235, #d8ffb2);
     }
     &__title {
         font-size: map-get($font-size, title-menu);

@@ -63,39 +63,36 @@ footer {
 }
 
 main {
-    @include breakpoint-phone(1850px, #F9D0FF, #a35b0f)
+    @include breakpoint-phone(2100px, #F9D0FF, #a35b0f)
 }
 
 article {
-    box-sizing: border-box;
-    width: 80%;
-    height: 1500px;
-    margin: 10px auto 60px;
-    padding: 50px;
-    box-shadow: 1px 1px 15px 1px #7a7a7a;
-    background-color: map-get($colors, bg-menu-2);
-    text-align: center;
+    @include menu-page(map-get($font-size, txt-menu), map-get($colors, bg-menu-2));
     font-family: serif;
+    @media (max-width: $bp-tablet) {
+        height: 1450px;
+    }
     & section {
-        @include menu-page(map-get($font-size, txt-menu));
-        margin-bottom: 30px;
         &.starter {
             color: map-get($font-color, starter-menu-2);
+            & h3.underline {
+                @include underline-anim(map-get($font-color, starter-menu-2));
+            }
         }
         &.main-course {
             color: map-get($font-color, main-course-menu-2);
+            & h3.underline {
+                @include underline-anim(map-get($font-color, main-course-menu-2));
+            }
         }
         &.dessert {
             color: map-get($font-color, dessert-menu-2);
-        }
-        & ul {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            margin: 0;
-            & li.bold {
-                font-weight: bold;
+            & h3.underline {
+                @include underline-anim(map-get($font-color, dessert-menu-2));
             }
+        }
+        & li.bold {
+            font-weight: bold;
         }
     }
 }
@@ -111,26 +108,11 @@ article {
 
 h3 {
     font-size: map-get($font-size, section-menu);
-    display: inline-block;
-    margin: 30px;
-    color: map-get($font-color, starter-menu-2);
-    @media (max-width: $bp-phone) {
-        margin: 0;
-    }
-    &:nth-of-type(2) {
-        color: map-get($font-color, main-course-menu-2);
-    }
-    &:nth-of-type(3) {
-        color: map-get($font-color, dessert-menu-2);
-    }
+    margin: 40px auto 0 auto;
+    line-height: 1.5em;
+    text-align: center;
 }
 
-.underline {
-    @include underline-anim(map-get($font-color, starter-menu-2));
-    &:nth-of-type(2) {
-        @include underline-anim(map-get($font-color, main-course-menu-2));
-    }
-    &:nth-of-type(3) {
-        @include underline-anim(map-get($font-color, dessert-menu-2));
-    }
+.edging {
+    @include edging-section-title;
 }
